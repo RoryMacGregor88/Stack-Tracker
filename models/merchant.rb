@@ -11,18 +11,24 @@ class Merchant
     sql = 'INSERT INTO merchants (name)
     VALUES ($1) RETURNING *'
     values = [@name]
-    @id = SqlRunner.run(sql, values).first['id'].to_i
+    @id = SqlRunner.run( sql, values ).first['id'].to_i
+  end
+
+  def self.all()
+    sql = 'SELECT * FROM merchants'
+    result = SqlRunner.run( sql )
+    return result.map{ |hash| Merchant.new( hash ) }
   end
 
   def self.delete_all()
     sql = 'DELETE FROM merchants'
-    SqlRunner.run(sql)
+    SqlRunner.run( sql )
   end
 
   def delete()
     sql = 'DELETE * FROM merchants WHERE id = $1'
     values = [@id]
-    SqlRunner.run(sql, values)
+    SqlRunner.run( sql, values)
   end
 
 end

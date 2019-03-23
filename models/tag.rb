@@ -1,10 +1,10 @@
-class Merchant
+class Tag
 
-  attr_accessor :id, :name
+  attr_accessor :id, :category
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
-    @name = options['name']
+    @category = options['category']
   end
-  
+
 end

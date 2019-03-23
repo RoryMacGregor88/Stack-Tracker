@@ -27,6 +27,13 @@ class Tag
     return Tag.new( result )
   end
 
+  def update()
+    sql = 'UPDATE tags SET (category) = ($1)
+    WHERE id = $2'
+    values = [@category, @id]
+    SqlRunner.run( sql, values )
+  end
+
   def self.delete_all()
     sql = 'DELETE FROM tags'
     SqlRunner.run( sql )

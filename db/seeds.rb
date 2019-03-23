@@ -57,3 +57,6 @@ transaction3 = Transaction.new({
   'charge' => '18.60'
   })
 transaction3.save()
+
+binding.pry
+nil

@@ -13,15 +13,23 @@ class Transaction
   end
 
   def save()
-    sql = 'INSERT INTO transactions (charge, tag_id, merchant_id) VALUES ($1, $2, $3) RETURNING *'
+    sql = 'INSERT INTO transactions (charge, tag_id, merchant_id)
+    VALUES ($1, $2, $3) RETURNING *'
     values = [@charge, @tag_id, @merchant_id]
-    @id = SqlRunner.run(sql, values).first['id'].to_i
-    @date = SqlRunner.run(sql, values).first['date']
+    result = SqlRunner.run(sql, values)
+    @id = result.first['id'].to_i
+    @date = result.first['date']
   end
 
   def self.delete_all()
     sql = 'DELETE FROM transactions'
     SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = 'DELETE * FROM transactions WHERE id = $1'
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
 
 end

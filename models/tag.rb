@@ -8,7 +8,8 @@ class Tag
   end
 
   def save()
-      sql = 'INSERT INTO tags (category) VALUES ($1) RETURNING *'
+      sql = 'INSERT INTO tags (category)
+      VALUES ($1) RETURNING *'
       values = [@category]
       @id = SqlRunner.run(sql, values).first['id'].to_i
     end
@@ -16,6 +17,12 @@ class Tag
   def self.delete_all()
     sql = 'DELETE FROM tags'
     SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = 'DELETE * FROM tags WHERE id = $1'
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
 
 end

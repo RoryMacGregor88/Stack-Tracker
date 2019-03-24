@@ -1,7 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
-require_relative( '../models/transaction' )
+require_relative( '../models/transaction.rb' )
 require_relative( '../models/merchant' )
 require_relative( '../models/tag' )
 also_reload( '../models/*' )
@@ -24,11 +24,6 @@ post '/transactions' do
 end
 
 post '/transactions/:id/delete' do
-  Transaction.delete( params[:id] )
+  Transaction.destroy( params[:id] )
   redirect to( '/transactions' )
-end
-
-post '/bitings/:id/delete' do
-  Biting.destroy(params[:id])
-  redirect to("/bitings")
 end

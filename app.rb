@@ -1,5 +1,5 @@
 require( 'sinatra' )
-require 'sinatra/contrib/all' if development? #ADDED
+require 'sinatra/contrib/all' if development?
 require_relative('controllers/merchant_controller.rb')
 require_relative('controllers/tag_controller.rb')
 require_relative('controllers/transaction_controller.rb')

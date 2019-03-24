@@ -1,10 +1,14 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
-require_relative( '../models/transaction.rb' )
+require_relative( '../models/transaction' )
 also_reload( '../models/*' )
 
 get '/transactions' do
-  @name = 'Johnny cage'
+  @transactions = Transaction.all()
   erb( :"transactions/index" )
 end
+
+# get '/transactions' do
+#   erb( :"transactions/index" )
+# end

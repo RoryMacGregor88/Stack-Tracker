@@ -5,7 +5,7 @@
     <title>Money Tracker</title>
   </head>
   <body>
-    <nav>
+    <nav class="navbar">
       <table>
         <tr>
           <td><a href="/transactions">Transactions</a></td>
@@ -14,8 +14,8 @@
         </tr>
       </table>
     </nav>
-    <section>
-      <% yield %>
+    <section id="content">
+      <%= yield %>
     </section>
   </body>
 </html>

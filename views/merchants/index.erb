@@ -6,13 +6,15 @@
   </p>
 
   <ul>
+    <% merchant_num = 1 %>
     <% for merchant in @merchants %>
-      <li>Merchant: <%= merchant.name %></li>
+      <li>Merchant <%= merchant_num %>: <%= merchant.name %></li>
       <p>
         <form action="/merchants/<%= merchant.id %>/delete" method="POST">
           <input class="btn btn--danger" type="submit" value="Delete merchant" />
         </form>
       </p>
+      <% merchant_num += 1 %>
     <%end%>
   </ul>
 </div>

@@ -55,7 +55,7 @@ class Transaction
     SqlRunner.run( sql, values )
   end
 
-  def self.destroy( id )
+  def self.delete( id )
     sql = 'DELETE FROM transactions WHERE id = $1'
     values = [id]
     SqlRunner.run( sql, values )
@@ -64,6 +64,14 @@ class Transaction
   def self.delete_all()
     sql = 'DELETE FROM transactions'
     SqlRunner.run( sql )
+  end
+
+  def most_recent_transaction()
+    result = []
+    Transaction.all.each do |transaction|
+      result << transaction
+    end
+    return result.sort[0]
   end
 
 end

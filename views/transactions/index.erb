@@ -6,7 +6,9 @@
   </p>
 
   <ul>
+    <% transaction_num = 1 %>
     <% for transaction in @transactions %>
+      <p>Transaction <%= transaction_num %>:</p>
       <li>Merchant: <%= transaction.find_merchant_by_id().name %></li>
       <li>Charge: <%= transaction.charge %></li>
       <li>Time and Date: <%= transaction.date %></li>
@@ -16,6 +18,7 @@
           <input class="btn btn--danger" type="submit" value="Delete transaction" />
         </form>
       </p>
+      <% transaction_num += 1 %>
     <%end%>
   </ul>
 </div>

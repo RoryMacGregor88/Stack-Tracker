@@ -1,0 +1,18 @@
+<div class="">
+  <h1>Your merchants</h1>
+
+  <p class="btn--wrapper">
+    <a class="btn btn--action" href="/merchants/new">New Merchant</a>
+  </p>
+
+  <ul>
+    <% for merchant in @merchants %>
+      <li>Merchant: <%= merchant.name %></li>
+      <p>
+        <form action="/merchants/<%= merchant.id %>/delete" method="POST">
+          <input class="btn btn--danger" type="submit" value="Delete merchant" />
+        </form>
+      </p>
+    <%end%>
+  </ul>
+</div>

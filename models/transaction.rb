@@ -58,7 +58,7 @@ class Transaction
   def self.destroy( id )
     sql = 'DELETE FROM transactions WHERE id = $1'
     values = [id]
-    results = SqlRunner.run( sql, values )
+    SqlRunner.run( sql, values )
   end
 
   def self.delete_all()

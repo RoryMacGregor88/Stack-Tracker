@@ -1,5 +1,5 @@
 <div class="">
-  <h1>Transactions</h1>
+  <h1>Your transactions</h1>
 
   <p class="btn--wrapper">
     <a class="btn btn--action" href="/transactions/new">New Transaction</a>
@@ -7,12 +7,15 @@
 
   <ul>
     <% for transaction in @transactions %>
-      <li>ID: <%= transaction.id %></li>
+      <li>Merchant: <%= transaction.find_merchant_by_id().name %></li>
       <li>Charge: <%= transaction.charge %></li>
-      <li>Merchant ID: <%= transaction.merchant_id %></li>
-      <li>tag ID: <%= transaction.tag_id %></li>
       <li>Time and Date: <%= transaction.date %></li>
-      <br>
+      <li>Category: <%= transaction.find_tag_by_id().category.upcase %></li>
+      <p>
+        <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+          <input class="btn btn--danger" type="submit" value="Delete transaction" />
+        </form>
+      </p>
     <%end%>
   </ul>
 </div>

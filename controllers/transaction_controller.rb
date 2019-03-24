@@ -27,3 +27,8 @@ post '/transactions/:id/delete' do
   Transaction.delete( params[:id] )
   redirect to( '/transactions' )
 end
+
+post '/bitings/:id/delete' do
+  Biting.destroy(params[:id])
+  redirect to("/bitings")
+end

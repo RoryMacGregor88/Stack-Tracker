@@ -1,7 +1,7 @@
 <h1>Transactions</h1>
 
 <p class="btn--wrapper">
-  <a class="btn btn--action" href="/bitings/new">New Transaction</a>
+  <a class="btn btn--action" href="/transactions/new">New Transaction</a>
 </p>
 
 <ul>
@@ -10,6 +10,7 @@
     <li>Charge: <%= transaction.charge %></li>
     <li>Merchant ID: <%= transaction.merchant_id %></li>
     <li>tag ID: <%= transaction.tag_id %></li>
-    <li>Date and Time: <%= transaction.date %></li>
+    <li>Time and Date: <%= transaction.date %></li>
+    <br>
   <%end%>
 </ul>

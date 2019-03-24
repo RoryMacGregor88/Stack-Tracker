@@ -15,6 +15,12 @@ get '/merchants/new' do
   erb( :'merchants/new' )
 end
 
+get '/merchants/show' do
+  @tags = Tag.all()
+  @merchants = Merchant.all()
+  erb( :'merchants/show' )
+end
+
 post '/merchants' do
   merchant = Merchant.new( params )
   merchant.save()

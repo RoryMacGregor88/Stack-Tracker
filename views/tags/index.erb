@@ -1,1 +1,24 @@
+<div class="">
+  <h1>Your tags</h1>
 
+  <p class="btn--wrapper">
+    <a class="btn btn--action" href="/tags/new">New Tag</a>
+  </p>
+
+  <ul>
+    <% tag_num = 1 %>
+    <% for tag in @tags %>
+      <li>Tag <%= tag_num %>: <%= tag.category %></li>
+      <p>
+        <form action="/tags/<%= tag.id %>/delete" method="POST">
+          <input class="btn btn--danger" type="submit" value="Delete tag" />
+        </form>
+      </p>
+      <p class="btn--wrapper">
+        <a class="btn btn--action" href="/tags/show">Show tag details</a>
+      </p>
+      <% tag_num += 1 %>
+    <%end%>
+  </ul>
+
+</div>

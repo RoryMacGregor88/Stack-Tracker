@@ -22,6 +22,6 @@ post '/merchants' do
 end
 
 post '/merchants/:id/delete' do
-  Merchant.destroy( params[:id] )
+  Merchant.delete( params[:id] )
   redirect to( '/merchants' )
 end

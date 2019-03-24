@@ -39,9 +39,9 @@ class Merchant
     SqlRunner.run( sql )
   end
 
-  def delete()
-    sql = 'DELETE * FROM merchants WHERE id = $1'
-    values = [@id]
+  def self.delete( id )
+    sql = 'DELETE FROM merchants WHERE id = $1'
+    values = [id]
     SqlRunner.run( sql, values )
   end
 

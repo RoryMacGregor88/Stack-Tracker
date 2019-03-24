@@ -66,12 +66,16 @@ class Transaction
     SqlRunner.run( sql )
   end
 
-  def most_recent_transaction()
+  def self.most_recent_transaction()
     result = []
     Transaction.all.each do |transaction|
       result << transaction
     end
-    return result.sort[0]
+    return result.last
   end
+
+  # def most_expensive_transaction()
+  #
+  # end
 
 end

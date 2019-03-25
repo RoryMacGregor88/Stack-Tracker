@@ -10,7 +10,7 @@
       <li>Time and Date: <%= transaction.date %></li>
       <li>Category: <%= transaction.find_tag_by_id().category.upcase %></li>
       <p>
-        <form action="/transactions/<%= transaction.id %>/update" method="post">
+        <form action="/transactions/<%= transaction.id %>" method="post">
           <input class="btn btn--danger" type="submit" value="Update transaction">
         </form>
         <br>

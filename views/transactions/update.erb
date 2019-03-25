@@ -10,7 +10,8 @@
           <option value="<%= merchant.id %>" selected><%= merchant.name %></option>
         <%else%>
           <option value="<%= merchant.id %>"><%= merchant.name %></option>
-      <%end%>
+        <%end%>
+      <% end %>
     </select>
   </label>
 
@@ -24,7 +25,8 @@
             <option value="<%= tag.id %>" selected><%= tag.category %></option>
           <%else%>
             <option value="<%= tag.id %>"><%= tag.category %></option>
-        <%end%>
+          <%end%>
+        <% end %>
       </select>
   </label>
 

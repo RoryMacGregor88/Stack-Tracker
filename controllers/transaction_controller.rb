@@ -26,7 +26,13 @@ post '/transactions/:id/delete' do
   redirect to( '/transactions' )
 end
 
-post '/transactions/:id/update' do
-  transaction.update()
-  redirect to( '/transactions' )
+get '/transactions/:id' do
+  @transaction = Transaction.find( params[:id] )
+  erb( :'transactions/update' )
+end
+
+get '/students/:id/edit' do
+  @houses = House.all
+  @student = Student.find(params['id'])
+  erb(:edit)
 end

@@ -6,7 +6,7 @@
     Select a merchant:
     <select name="merchant_id">
       <% for merchant in @merchants %>
-        <% if  %>
+        <% if %>
         <option value="<%= merchant.id %>"><%= merchant.name %></option>
       <%end%>
     </select>

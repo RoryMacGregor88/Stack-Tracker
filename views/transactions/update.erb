@@ -5,9 +5,11 @@
   <label>
     Select a merchant:
     <select name="merchant_id">
-      <% for merchant in @merchants %>
-        <% if %>
-        <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% @merchant.each do |merchant| %>
+        <% if merchant.id == @transaction.merchant_id %>
+          <option value="<%= merchant.id %>" selected><%= merchant.name %></option>
+        <%else%>
+          <option value="<%= merchant.id %>"><%= merchant.name %></option>
       <%end%>
     </select>
   </label>
@@ -17,8 +19,11 @@
   <label>
     Select a tag:
       <select name="tag_id">
-        <% for tag in @tags %>
-          <option value="<%= tag.id %>"><%= tag.category %></option>
+        <% @tags.each do |tag| %>
+          <% if tag.id == @transaction.tag_id%>
+            <option value="<%= tag.id %>" selected><%= tag.category %></option>
+          <%else%>
+            <option value="<%= tag.id %>"><%= tag.category %></option>
         <%end%>
       </select>
   </label>
@@ -27,7 +32,7 @@
 
   <label>
     Input charge:
-      <input type="number" placeholder="£0.00" name="charge" required>
+      <input type="number" placeholder="<%@transaction.charge %>" name="charge" required>
   </label>
 
   <br>

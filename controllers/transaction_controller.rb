@@ -26,7 +26,7 @@ post '/transactions/:id/delete' do
   redirect to( '/transactions' )
 end
 
-post '/transactions/update' do
-  @transaction.update( params )
+post '/transactions/:id/update' do
+  transaction.update()
   redirect to( '/transactions' )
 end

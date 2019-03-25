@@ -10,6 +10,10 @@
       <li>Time and Date: <%= transaction.date %></li>
       <li>Category: <%= transaction.find_tag_by_id().category.upcase %></li>
       <p>
+        <form action="/transactions/<%= transaction.id %>/edit" method="post">
+          <input class="btn btn--danger" type="submit" value="Edit transaction">
+        </form>
+        <br>
         <form action="/transactions/<%= transaction.id %>/delete" method="POST">
           <input class="btn btn--danger" type="submit" value="Delete transaction" />
         </form>

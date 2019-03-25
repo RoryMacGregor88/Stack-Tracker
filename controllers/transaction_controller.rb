@@ -27,5 +27,6 @@ post '/transactions/:id/delete' do
 end
 
 post '/transactions/:id/edit' do
-  
+  @transaction = Transaction.find( params[:id] )
+  erb( :'transactions/edit' )
 end

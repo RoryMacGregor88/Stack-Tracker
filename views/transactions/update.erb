@@ -1,0 +1,36 @@
+<h1>Update transaction</h1>
+
+<form action="/transactions/update" method="post">
+
+  <label>
+    Select a merchant:
+    <select name="merchant_id">
+      <% for merchant in @merchants %>
+        <% if  %>
+        <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <%end%>
+    </select>
+  </label>
+
+  <br>
+
+  <label>
+    Select a tag:
+      <select name="tag_id">
+        <% for tag in @tags %>
+          <option value="<%= tag.id %>"><%= tag.category %></option>
+        <%end%>
+      </select>
+  </label>
+
+  <br>
+
+  <label>
+    Input charge:
+      <input type="number" placeholder="£0.00" name="charge" required>
+  </label>
+
+  <br>
+
+  <input class="btn btn--action" type='submit' value="Update Transaction">
+</form>

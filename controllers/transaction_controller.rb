@@ -26,7 +26,8 @@ post '/transactions/:id/delete' do
   redirect to( '/transactions' )
 end
 
-post '/transactions/:id/edit' do
+post '/transactions/update' do
   @transaction = Transaction.find( params[:id] )
-  erb( :'transactions/edit' )
+  @transaction.update( params )
+  redirect to( '/transactions' )
 end

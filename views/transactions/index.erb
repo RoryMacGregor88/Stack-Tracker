@@ -1,28 +1,41 @@
 <div class="">
-  <h1>Your transactions</h1>
+  <h1 class="h1">Your transactions</h1>
 
-  <ul>
+<div class="index_table">
+  <table>
     <% transaction_num = 1 %>
+    <th>
+      <td>Merchant</td>
+      <td>Charge</td>
+      <td>Time/Date</td>
+      <td>Category</td>
+    </th>
     <% for transaction in @transactions %>
-      <p>Transaction <%= transaction_num %>:</p>
-      <li>Merchant: <%= transaction.find_merchant_by_id().name %></li>
-      <li>Charge: <%= transaction.charge %></li>
-      <li>Time and Date: <%= transaction.date %></li>
-      <li>Category: <%= transaction.find_tag_by_id().category.upcase %></li>
-      <p>
+    <tr>
+      <td><%= transaction_num %></td>
+      <td><%= transaction.find_merchant_by_id().name %></td>
+      <td><%= transaction.charge %></td>
+      <td><%= transaction.date %></td>
+      <td><%= transaction.find_tag_by_id().category.upcase %></td>
+      <td>
         <form action="/transactions/<%= transaction.id %>" method="post">
           <input class="btn btn--danger" type="submit" value="Update transaction">
         </form>
-        <br>
+      </td>
+      <td>
         <form action="/transactions/<%= transaction.id %>/delete" method="POST">
           <input class="btn btn--danger" type="submit" value="Delete transaction" />
         </form>
-      </p>
+      </td>
       <% transaction_num += 1 %>
-    <%end%>
-  </ul>
+      <%end%>
+    </tr>
 
-  <p>
+  </table>
+</div>
+
+
+  <p class="index_button">
     <a class="btn btn--action" href="/transactions/new">New Transaction</a>
   </p>
 

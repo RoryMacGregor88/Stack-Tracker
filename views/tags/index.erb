@@ -4,7 +4,7 @@
   <ul>
     <% tag_num = 1 %>
     <% for tag in @tags %>
-      <p>Tag <%= tag_num %>: <%= tag.category %></p>
+      <p>Tag <%= tag_num %>: <%= tag.category.upcase %></p>
       <p>
         <form action="/tags/<%= tag.id %>/delete" method="POST">
           <input class="btn btn--danger" type="submit" value="Delete tag" />

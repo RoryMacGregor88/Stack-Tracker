@@ -18,3 +18,9 @@ get '/tags/show' do
   @tags = Tag.all()
   erb( :'tags/show' )
 end
+
+post '/tags' do
+  tag = Tag.new( params )
+  tag.save()
+  reditect to( ':tags' )
+end

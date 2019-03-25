@@ -17,3 +17,13 @@ h1 {
   align-items: center;
   border: 5px solid black;
 }
+
+.tr_layout {
+  display: flex;
+  justify-content: space-around;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+}

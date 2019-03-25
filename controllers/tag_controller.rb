@@ -22,5 +22,9 @@ end
 post '/tags' do
   tag = Tag.new( params )
   tag.save()
-  reditect to( ':tags' )
+  redirect to( '/tags' )
 end
+
+# post '/tags/:id/delete' do
+#
+# end

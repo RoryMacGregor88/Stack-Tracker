@@ -2,12 +2,12 @@
 
 <div class="most_recent_table">
   <table>
-    <th>
-      <td>Merchant</td>
-      <td>Charge</td>
-      <td>Time/Date</td>
-      <td>Category</td>
-    </th>
+    <thead>
+      <th>Merchant</th>
+      <th>Charge</th>
+      <th>Time/Date</th>
+      <th>Category</th>
+    </thead>
     <tr>
       <td><%= @most_recent.find_merchant_by_id.name %></td>
       <td>£<%= @most_recent.charge %></td>

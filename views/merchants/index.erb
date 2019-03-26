@@ -9,6 +9,9 @@
         <a class="btn btn--action" href="/merchants/show">Show merchant details</a>
       </p>
       <p>
+        <p class="merchant-update-button">
+          <a href="/merchants/<%= merchant.id %>/update">Update merchant</a>
+        </p>
         <form action="/merchants/<%= merchant.id %>/delete" method="POST">
           <input class="btn btn--danger" type="submit" value="Delete merchant" />
         </form>

@@ -31,3 +31,15 @@ post '/merchants/:id/delete' do
   Merchant.delete( params[:id] )
   redirect to( '/merchants' )
 end
+
+get '/merchants/:id/update' do
+  @merchant = Merchant.find( params[:id] )
+  @merchants = Merchant.all()
+  erb( :'/merchants/update' )
+end
+
+post '/merchants/:id' do
+  merchant = Merchant.new( params )
+  merchant.update()
+  redirect to "/merchants"
+end

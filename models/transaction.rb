@@ -74,8 +74,16 @@ class Transaction
     return result.last
   end
 
-  # def most_expensive_transaction()
-  #
-  # end
+  def self.most_expensive_transaction()
+    sql = 'SELECT * FROM transactions
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          ORDER BY charge DESC
+          LIMIT 1'
+    result = SqlRunner.run(sql).first
+    return Transaction.new( result )
+  end
 
 end

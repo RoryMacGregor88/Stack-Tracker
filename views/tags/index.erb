@@ -10,8 +10,11 @@
           <input class="btn btn--danger" type="submit" value="Delete tag" />
         </form>
       </p>
-      <p class="btn--wrapper">
+      <p class="tag-details-button">
         <a class="btn btn--action" href="/tags/show">Show tag details</a>
+      </p>
+      <p class="tag-update-button">
+        <a href="/tags/<%= tag.id %>/update">Update tag</a>
       </p>
       <% tag_num += 1 %>
     <%end%>

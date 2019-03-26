@@ -29,3 +29,15 @@ post '/tags/:id/delete' do
  Tag.delete( params[:id ] )
  redirect to ( '/tags' )
 end
+
+get '/tags/:id/update' do
+  @tag = Tag.find( params[:id] )
+  @tags = Tag.all()
+  erb( :'/tags/update' )
+end
+
+post '/tags/:id' do
+  tag = Tag.new( params )
+  tag.update()
+  redirect to "/tags"
+end

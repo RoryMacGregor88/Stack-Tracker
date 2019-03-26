@@ -1,0 +1,11 @@
+<h2>Update tag</h2>
+  <form action="/tags/<%= @tag.id%>/update" method="post">
+    <div class="form-wrapper">
+
+      <div class="form-el">
+        <label for="category">New category:</label>
+        <input type="text" name="category" id="category" value="<%= @tag.category %>">
+      </div>
+
+    </div>
+  </form>

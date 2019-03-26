@@ -7,15 +7,21 @@ body {
   justify-content: space-around;
 }
 
-.most_recent_p {
+.welcome_h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.most_recent_h3 {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 10px;
 }
 
-h1 {
+.transaction_history_h3 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-bottom: 10px
 }
 
 .most_recent_table {

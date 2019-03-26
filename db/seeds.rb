@@ -58,5 +58,7 @@ transaction3 = Transaction.new({
   })
 transaction3.save()
 
+result = Transaction.most_recent_transaction()
+
 binding.pry
 nil

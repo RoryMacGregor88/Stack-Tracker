@@ -7,9 +7,21 @@ body {
   justify-content: space-around;
 }
 
+.most_recent_p {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0px;
+}
+
 h1 {
   display: flex;
   justify-content: center;
+}
+
+.most_recent_table {
+  display: flex;
+  align-items: center;
+  border: 5px solid black;
 }
 
 .index_table {
@@ -24,6 +36,6 @@ h1 {
 }
 
 #content {
-  display: flex;
-  justify-content: center;
+  padding-left: 200px;
+  padding-right: 200px;
 }

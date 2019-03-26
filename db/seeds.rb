@@ -65,7 +65,7 @@ transaction4 = Transaction.new({
   })
 transaction4.save()
 
-result = Transaction.filter_by_merchant('Chanter')
+result = Transaction.transactions_today( '2019-03-26' )
 
 binding.pry
 nil

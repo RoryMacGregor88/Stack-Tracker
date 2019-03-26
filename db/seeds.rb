@@ -58,7 +58,14 @@ transaction3 = Transaction.new({
   })
 transaction3.save()
 
-result = Transaction.most_expensive_transaction()
+transaction4 = Transaction.new({
+  'merchant_id' => merchant3.id,
+  'tag_id' => tag3.id,
+  'charge' => '999'
+  })
+transaction4.save()
+
+result = Transaction.filter_by_merchant('Chanter')
 
 binding.pry
 nil

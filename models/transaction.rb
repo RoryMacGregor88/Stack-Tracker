@@ -86,4 +86,27 @@ class Transaction
     return Transaction.new( result )
   end
 
+  def self.filter_by_merchant( merchant_name )
+    sql = 'SELECT * FROM transactions
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          WHERE name = $1'
+    values = [merchant_name]
+    result = SqlRunner.run(sql, values)
+    return result.map{ |hash| Transaction.new( hash ) }
+  end
+
+  # def self.filter_by_fragment( fragment )
+  #   sql = "SELECT * FROM transactions
+  #         INNER JOIN tags
+  #         ON transactions.tag_id = tags.id
+  #         INNER JOIN merchants
+  #         ON transactions.merchant_id = merchants.id
+  #         WHERE name = '%$1%'"
+  #   values = [fragment]
+  #   return SqlRunner.run(sql, values).first
+  # end
+
 end

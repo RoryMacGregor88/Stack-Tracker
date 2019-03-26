@@ -1,11 +1,11 @@
 <h1>Update transaction</h1>
 
-<form action="/transactions/update" method="post">
+<form action="/transactions/<%= @transaction.id %>" method="post">
 
   <label>
     Select a merchant:
     <select name="merchant_id">
-      <% @merchant.each do |merchant| %>
+      <% @merchants.each do |merchant| %>
         <% if merchant.id == @transaction.merchant_id %>
           <option value="<%= merchant.id %>" selected><%= merchant.name %></option>
         <%else%>
@@ -34,7 +34,7 @@
 
   <label>
     Input charge:
-      <input type="number" placeholder="<%@transaction.charge %>" name="charge" required>
+      <input type="number" placeholder="<%=@transaction.charge %>" name="charge" required>
   </label>
 
   <br>

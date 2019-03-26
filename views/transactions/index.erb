@@ -1,23 +1,23 @@
 <h3 class="most_recent_h3">Most recent transaction:</h3>
 
-  <div class="most_recent_table">
-    <table>
-      <th>
-        <td>Merchant</td>
-        <td>Charge</td>
-        <td>Time/Date</td>
-        <td>Category</td>
-      </th>
-      <tr>
-        <td><%= @most_recent.find_merchant_by_id.name %></td>
-        <td>£<%= @most_recent.charge %></td>
-        <td><%= @most_recent.date %></td>
-        <td><%= @most_recent.find_tag_by_id.category %></td>
-      </tr>
-    </table>
-  </div>
+<div class="most_recent_table">
+  <table>
+    <th>
+      <td>Merchant</td>
+      <td>Charge</td>
+      <td>Time/Date</td>
+      <td>Category</td>
+    </th>
+    <tr>
+      <td><%= @most_recent.find_merchant_by_id.name %></td>
+      <td>£<%= @most_recent.charge %></td>
+      <td><%= @most_recent.date %></td>
+      <td><%= @most_recent.find_tag_by_id.category %></td>
+    </tr>
+  </table>
+</div>
 
-  <h3 class="transaction_history_h3">Transaction History:</h3>
+<h3 class="transaction_history_h3">Transaction History:</h3>
 
 <div class="index_table">
   <table>
@@ -36,9 +36,7 @@
       <td><%= transaction.date %></td>
       <td><%= transaction.find_tag_by_id().category.upcase %></td>
       <td>
-        <form action="/transactions/<%= transaction.id %>" method="post">
-          <input class="btn btn--danger" type="submit" value="Update transaction">
-        </form>
+        <a href="/transactions/<%= transaction.id %>/update">Update transaction</a>
       </td>
       <td>
         <form action="/transactions/<%= transaction.id %>/delete" method="POST">
@@ -48,13 +46,9 @@
       <% transaction_num += 1 %>
       <%end%>
     </tr>
-
   </table>
 </div>
-
 
   <p class="index_button">
     <a class="btn btn--action" href="/transactions/new">New Transaction</a>
   </p>
-
-</div>

@@ -6,6 +6,7 @@ also_reload( '../models/*' )
 
 get '/transactions' do
   @transactions = Transaction.all()
+  @most_recent = Transaction.most_recent_transaction()
   erb( :'transactions/index' )
 end
 

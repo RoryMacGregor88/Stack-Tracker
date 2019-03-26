@@ -10,7 +10,7 @@ body {
 .most_recent_p {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -21,13 +21,13 @@ h1 {
 .most_recent_table {
   display: flex;
   align-items: center;
-  border: 5px solid black;
+  border: 3px solid black;
 }
 
 .index_table {
   display: flex;
   align-items: center;
-  border: 5px solid black;
+  border: 3px solid black;
 }
 
 .tr_layout {

@@ -1,22 +1,21 @@
-<p class="most_recent_p">Most recent transaction:</p>
+<h3 class="most_recent_p">Most recent transaction:</h3>
 
-<div class="most_recent_table">
-  <% @most_recent = Transaction.most_recent_transaction() %>
-  <table>
-    <th>
-      <td>Merchant</td>
-      <td>Charge</td>
-      <td>Time/Date</td>
-      <td>Category</td>
-    </th>
-    <tr>
-      <td><%= @most_recent.find_merchant_by_id.name %></td>
-      <td>£<%= @most_recent.charge %></td>
-      <td><%= @most_recent.date %></td>
-      <td><%= @most_recent.find_tag_by_id.category %></td>
-    </tr>
-  </table>
-</div>
+  <div class="most_recent_table">
+    <table>
+      <th>
+        <td>Merchant</td>
+        <td>Charge</td>
+        <td>Time/Date</td>
+        <td>Category</td>
+      </th>
+      <tr>
+        <td><%= @most_recent.find_merchant_by_id.name %></td>
+        <td>£<%= @most_recent.charge %></td>
+        <td><%= @most_recent.date %></td>
+        <td><%= @most_recent.find_tag_by_id.category %></td>
+      </tr>
+    </table>
+  </div>
 
   <h3 class="h1">Transaction History</h3>
 

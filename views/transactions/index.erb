@@ -17,6 +17,25 @@
   </table>
 </div>
 
+<h3 class="most_recent_h3">Most expensive transaction:</h3>
+
+<div class="most_expensive_table">
+  <table>
+    <thead>
+      <th>Merchant</th>
+      <th>Charge</th>
+      <th>Time/Date</th>
+      <th>Category</th>
+    </thead>
+    <tr>
+      <td><%= @most_expensive.find_merchant_by_id.name %></td>
+      <td>£<%= @most_expensive.charge %></td>
+      <td><%= @most_expensive.date %></td>
+      <td><%= @most_expensive.find_tag_by_id.category %></td>
+    </tr>
+  </table>
+</div>
+
 <h3 class="transaction_history_h3">Transaction History:</h3>
 
 <div class="index_table">

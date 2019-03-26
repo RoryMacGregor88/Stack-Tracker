@@ -30,6 +30,12 @@ body {
   border: 3px solid black;
 }
 
+.most_expensive_table {
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+}
+
 .index_table {
   display: flex;
   align-items: center;

@@ -52,6 +52,6 @@ get '/transactions/merchant_filter' do
 end
 
 get '/transactions/tag_filter' do
-  @filtered_tags = Transaction.filter_by_tag( params[:name] )
+  @filtered_tags = Transaction.filter_by_tag( params[:tag] )
   erb( :'/transactions/tag_filter' )
 end

@@ -45,17 +45,4 @@ class Tag
     SqlRunner.run( sql, values )
   end
 
-  def self.filter_by_tag( arg )
-    # tag_name = arg.split.each{ |x| x.capitalize! }.join(' ')
-    sql = 'SELECT * FROM transactions
-          INNER JOIN merchants
-          ON transactions.merchant_id = merchants.id
-          INNER JOIN tags
-          ON transactions.tag_id = tags.id
-          WHERE category = $1'
-    values = [arg]
-    result = SqlRunner.run(sql, values)
-    return result.map{ |hash| Tag.new( hash ) }
-  end
-
 end

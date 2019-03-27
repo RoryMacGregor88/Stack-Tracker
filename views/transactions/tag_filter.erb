@@ -1,7 +1,7 @@
 <h2 class="most_recent_h2">Filtered transactions:</h2>
 <h3 class="most_recent_h3">Filtered by tag:</h3>
 
-<div class="filter_merchant_table">
+<div class="filter_tag_table">
   <table>
     <% transaction_num = 1 %>
     <thead class="table_head">
@@ -11,13 +11,13 @@
       <th>Time/Date</th>
       <th>Category</th>
     </thead>
-    <% @filtered_merchants.each do |merchant| %>
+    <% @filtered_tags.each do |transaction| %>
     <tr>
       <td><%= transaction_num %></td>
-      <td><%= merchant.find_merchant_by_id.name %></td>
-      <td>£<%= merchant.charge %></td>
-      <td><%= merchant.date %></td>
-      <td><%= merchant.find_tag_by_id.category.upcase %></td>
+      <td><%= transaction.find_merchant_by_id.name %></td>
+      <td>£<%= transaction.charge %></td>
+      <td><%= transaction.date %></td>
+      <td><%= transaction.find_tag_by_id.category.upcase %></td>
       <% transaction_num += 1 %>
     <%end%>
     </tr>

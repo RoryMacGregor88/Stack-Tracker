@@ -10,13 +10,13 @@
       <th>Time/Date</th>
       <th>Category</th>
     </thead>
-    <% @filtered_merchants.each do |merchant| %>
+    <% @filtered_merchants.each do |transaction| %>
     <tr>
       <td><%= transaction_num %></td>
-      <td><%= merchant.find_merchant_by_id.name %></td>
-      <td>£<%= merchant.charge %></td>
-      <td><%= merchant.date %></td>
-      <td><%= merchant.find_tag_by_id.category.upcase %></td>
+      <td><%= transaction.find_merchant_by_id.name %></td>
+      <td>£<%= transaction.charge %></td>
+      <td><%= transaction.date %></td>
+      <td><%= transaction.find_tag_by_id.category.upcase %></td>
       <% transaction_num += 1 %>
     <%end%>
     </tr>

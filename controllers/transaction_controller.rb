@@ -55,3 +55,8 @@ get '/transactions/tag_filter' do
   @filtered_tags = Transaction.filter_by_tag( params[:tag] )
   erb( :'/transactions/tag_filter' )
 end
+
+get '/transactions/date_filter' do
+  @filtered_dates = Transaction.filter_by_date( params[:date] )
+  erb( :'/transactions/date_filter' )
+end

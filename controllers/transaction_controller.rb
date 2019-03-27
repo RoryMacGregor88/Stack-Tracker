@@ -8,6 +8,7 @@ get '/transactions' do
   @transactions = Transaction.all()
   @most_recent = Transaction.most_recent_transaction()
   @most_expensive = Transaction.most_expensive_transaction()
+  @most_common = Transaction.most_common_merchant()
   erb( :'transactions/index' )
 end
 

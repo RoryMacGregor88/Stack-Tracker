@@ -65,5 +65,7 @@ transaction4 = Transaction.new({
   })
 transaction4.save()
 
+tag1 = Transaction.filter_by_tag( 'entertainment' )
+
 binding.pry
 nil

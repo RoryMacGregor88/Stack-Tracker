@@ -99,6 +99,18 @@ class Transaction
     return result.map{ |hash| Transaction.new( hash ) }
   end
 
+  def self.filter_by_tag( tag_name )
+    sql = 'SELECT * FROM transactions
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          WHERE category = $1'
+    values = [tag_name]
+    result = SqlRunner.run(sql, values)
+    return result.map{ |hash| Transaction.new( hash ) }
+  end
+
   def self.transactions_today( date )
     sql = 'SELECT * FROM transactions
           INNER JOIN merchants

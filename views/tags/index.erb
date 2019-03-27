@@ -4,24 +4,22 @@
   <ul>
     <% tag_num = 1 %>
     <% for tag in @tags %>
-      <p>Tag <%= tag_num %>: <%= tag.category.upcase %></p>
+      <p class="font-karla">Tag <%= tag_num %>: <%= tag.category.upcase %></p>
       <p class="tag-details-button">
-        <a class="btn btn--action" href="/tags/show">Show tag details</a>
+        <a class="font-karla" class="btn btn--action" href="/tags/show">Show tag details</a>
       </p>
       <p class="tag-update-button">
-        <a href="/tags/<%= tag.id %>/update">Update tag</a>
+        <a class="font-karla" href="/tags/<%= tag.id %>/update">Update tag</a>
       </p>
-      <p>
         <form action="/tags/<%= tag.id %>/delete" method="POST">
-          <input class="btn btn--danger" type="submit" value="Delete tag" />
+          <input class="font-karla" class="btn btn--danger" type="submit" value="Delete tag" />
         </form>
-      </p>
       <% tag_num += 1 %>
     <%end%>
   </ul>
 
   <p class="btn--wrapper">
-    <a class="btn btn--action" href="/tags/new">New Tag</a>
+    <a class="font-karla" class="btn btn--action" href="/tags/new">New Tag</a>
   </p>
 
 </div>

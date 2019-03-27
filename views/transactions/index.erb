@@ -1,100 +1,101 @@
 <h3 class="h3">Most recent transaction:</h3>
 
-<div class="most_recent_table">
-  <table>
-    <thead>
-      <th>Merchant</th>
-      <th>Charge</th>
-      <th>Time/Date</th>
-      <th>Category</th>
-    </thead>
-    <tr>
-      <td><%= @most_recent.find_merchant_by_id.name %></td>
-      <td>£<%= @most_recent.charge %></td>
-      <td><%= @most_recent.date %></td>
-      <td><%= @most_recent.find_tag_by_id.category.upcase %></td>
-    </tr>
-  </table>
-</div>
+  <div class="most_recent_table">
+    <table>
+      <thead>
+        <th class="font-karla" >Merchant</th>
+        <th class="font-karla" >Charge</th>
+        <th class="font-karla" >Time/Date</th>
+        <th class="font-karla" >Category</th>
+      </thead>
+      <tr>
+        <td class="font-karla" ><%= @most_recent.find_merchant_by_id.name %></td>
+        <td class="font-karla" >£<%= @most_recent.charge %></td>
+        <td class="font-karla" ><%= @most_recent.date %></td>
+        <td class="font-karla" ><%= @most_recent.find_tag_by_id.category.upcase %></td>
+      </tr>
+    </table>
+  </div>
 
-<h3 class="h3">Most expensive transaction:</h3>
+  <h3 class="h3">Most expensive transaction:</h3>
 
-<div class="most_expensive_table">
-  <table>
-    <thead>
-      <th>Merchant</th>
-      <th>Charge</th>
-      <th>Time/Date</th>
-      <th>Category</th>
-    </thead>
-    <tr>
-      <td><%= @most_expensive.find_merchant_by_id.name %></td>
-      <td>£<%= @most_expensive.charge %></td>
-      <td><%= @most_expensive.date %></td>
-      <td><%= @most_expensive.find_tag_by_id.category.upcase %></td>
-    </tr>
-  </table>
-</div>
+  <div class="most_expensive_table">
+    <table>
+      <thead>
+        <th class="font-karla" >Merchant</th>
+        <th class="font-karla" >Charge</th>
+        <th class="font-karla" >Time/Date</th>
+        <th class="font-karla" >Category</th>
+      </thead>
+      <tr>
+        <td class="font-karla" ><%= @most_expensive.find_merchant_by_id.name %></td>
+        <td class="font-karla" >£<%= @most_expensive.charge %></td>
+        <td class="font-karla" ><%= @most_expensive.date %></td>
+        <td class="font-karla" ><%= @most_expensive.find_tag_by_id.category.upcase %></td>
+      </tr>
+    </table>
+  </div>
 
 
 
-<h3 class="h3">Transaction History:</h3>
+  <h3 class="h3">Transaction History:</h3>
 
-<div class="index_table">
-  <table>
-    <% transaction_num = 1 %>
-    <th class="table_head">
-      <td>Merchant</td>
-      <td>Charge</td>
-      <td>Time/Date</td>
-      <td>Category</td>
-    </th>
-    <% for transaction in @transactions %>
-    <tr>
-      <td><%= transaction_num %></td>
-      <td><%= transaction.find_merchant_by_id().name %></td>
-      <td>£<%= transaction.charge %></td>
-      <td><%= transaction.date %></td>
-      <td><%= transaction.find_tag_by_id().category.upcase %></td>
-      <td>
-        <a href="/transactions/<%= transaction.id %>/update">Update transaction</a>
-      </td>
-      <td>
-        <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-          <input class="btn btn--danger" type="submit" value="Delete transaction" />
-        </form>
-      </td>
-      <% transaction_num += 1 %>
-      <%end%>
-    </tr>
-  </table>
-</div>
-<br>
+  <div class="index_table">
+    <table>
+      <% transaction_num = 1 %>
+      <thead class="table_head">
+        <th class="font-karla" >#</th>
+        <th class="font-karla" >Merchant</th>
+        <th class="font-karla" >Charge</th>
+        <th class="font-karla" >Time/Date</th>
+        <th class="font-karla" >Category</th>
+      </thead>
+      <% for transaction in @transactions %>
+      <tr>
+        <td class="font-karla" ><%= transaction_num %></td>
+        <td class="font-karla" ><%= transaction.find_merchant_by_id().name %></td>
+        <td class="font-karla" >£<%= transaction.charge %></td>
+        <td class="font-karla" ><%= transaction.date %></td>
+        <td class="font-karla" ><%= transaction.find_tag_by_id().category.upcase %></td>
+        <td>
+          <a class="font-karla" href="/transactions/<%= transaction.id %>/update">Update transaction</a>
+        </td>
+        <td>
+          <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+            <input class="font-karla" type="submit" value="Delete transaction" />
+          </form>
+        </td>
+        <% transaction_num += 1 %>
+        <%end%>
+      </tr>
+    </table>
+  </div>
+  <br>
 
-<form class="" action="/transactions/merchant_filter" method="GET">
-  <label for="merchant_filter">
-    Filter by merchant:
-      <input id="merchant_filter" type="text" placeholder="name" name="name">
+  <form class="" action="/transactions/merchant_filter" method="GET">
+    <label class="font-karla" for="merchant_filter">
+      Filter by merchant:
+        <input id="merchant_filter" type="text" placeholder="name" name="name">
+      <input type="submit" value="filter results">
+    </label>
+  </form>
+
+  <form class="" action="/transactions/tag_filter" method="GET">
+    <label class="font-karla" for="tag_filter">
+      Filter by tag:
+        <input id="tag_filter" type="text" placeholder="tag" name="tag">
+      <input type="submit" value="filter results">
+    </label>
+  </form>
+
+  <form class="" action="/transactions/date_filter" method="GET">
+    <label class="font-karla" for="filter-date">
+      Filter by date:
+        <input id="filter-date" type="date" name="date">
     <input type="submit" value="filter results">
-  </label>
-</form>
+    </label>
+  </form>
 
-<form class="" action="/transactions/tag_filter" method="GET">
-  <label for="tag_filter">
-    Filter by tag:
-      <input id="tag_filter" type="text" placeholder="tag" name="tag">
-    <input type="submit" value="filter results">
-  </label>
-</form>
-
-<form class="" action="/transactions/date_filter" method="GET">
-  <label for="filter-date">
-    Filter by date:
-      <input id="filter-date" type="date" name="date">
-  <input type="submit" value="filter results">
-  </label>
-</form>
-
-<p class="index_button">
-  <a class="btn btn--action" href="/transactions/new">New Transaction</a>
-</p>
+  <p class="index_button">
+    <a class="font-karla" class="btn btn--action" href="/transactions/new">New Transaction</a>
+  </p>

@@ -4,23 +4,23 @@
   <ul>
     <% merchant_num = 1 %>
     <% for merchant in @merchants %>
-      <p>Merchant <%= merchant_num %>: <%= merchant.name %></p>
+      <p  class="font-karla">Merchant <%= merchant_num %>: <%= merchant.name %></p>
       <p class="btn--wrapper">
-        <a class="btn btn--action" href="/merchants/show">Show merchant details</a>
+        <a  class="font-karla" class="btn btn--action" href="/merchants/show">Show merchant details</a>
       </p>
 
       <p class="merchant-update-button">
-        <a href="/merchants/<%= merchant.id %>/update">Update merchant</a>
+        <a  class="font-karla" href="/merchants/<%= merchant.id %>/update">Update merchant</a>
       </p>
       <form action="/merchants/<%= merchant.id %>/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="Delete merchant" />
+        <input  class="font-karla" class="btn btn--danger" type="submit" value="Delete merchant" />
       </form>
       <% merchant_num += 1 %>
     <%end%>
   </ul>
 
   <p class="btn--wrapper">
-    <a class="btn btn--action" href="/merchants/new">New Merchant</a>
+    <a  class="font-karla" class="btn btn--action" href="/merchants/new">New Merchant</a>
   </p>
 
 </div>

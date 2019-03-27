@@ -1,3 +1,8 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   background-color: #b9d7d9;
 }
@@ -5,9 +10,20 @@ body {
 .navbar {
   display: flex;
   justify-content: space-around;
+  font-family: Karla;
+}
+
+.font-karla {
+  font-family: Karla;
 }
 
 .h1 {
+  display: flex;
+  justify-content: center;
+  font-family: Karla;
+}
+
+.h2 {
   display: flex;
   justify-content: center;
   font-family: Karla;
@@ -38,9 +54,9 @@ body {
   border: 3px solid black;
 }
 
-.tr_layout {
-  display: flex;
-  justify-content: space-around;
+.new-form-div {
+  display:flex;
+  justify-content: center;
 }
 
 #content {

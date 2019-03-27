@@ -2,18 +2,18 @@
 
 <form action="/transactions" method="post">
 
-  <label>
+  <label class="font-karla" >
     Select a merchant:
     <select name="merchant_id">
       <% for merchant in @merchants %>
-        <option value="<%= merchant.id %>"><%= merchant.name %></option>
+        <option class="font-karla" value="<%= merchant.id %>"><%= merchant.name %></option>
       <%end%>
     </select>
   </label>
 
   <br>
 
-  <label>
+  <label class="font-karla" >
     Select a tag:
       <select name="tag_id">
         <% for tag in @tags %>
@@ -24,12 +24,12 @@
 
   <br>
 
-  <label>
+  <label class="font-karla" >
     Input charge:
       <input type="number" placeholder="£0.00" name="charge" required>
   </label>
 
   <br>
 
-  <input class="btn btn--action" type='submit' value="Add Transaction">
+  <input class="font-karla" class="btn btn--action" type='submit' value="Add Transaction">
 </form>

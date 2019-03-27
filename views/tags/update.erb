@@ -1,14 +1,13 @@
-<h2>Update tag</h2>
+<h2 class="h2">Update tag</h2>
   <form action="/tags/<%= @tag.id %>" method="post">
-    <div class="form-wrapper">
-
-      <div class="form-el">
-        <label for="category">New category:</label>
-        <input type="text" name="category" id="category" value="<%= @tag.category %>">
+    <div>
+      <div>
+        <label class="font-karla" for="category">New category:</label>
+        <input class="font-karla" type="text" name="category" id="category" value="<%= @tag.category %>">
       </div>
-    <input class="btn btn--action" type='submit' value="Update tag">
+      <input class="font-karla" type='submit' value="Update tag">
     <div class="cancel-link">
-      <a href="/tags">Cancel</a>
+      <a class="font-karla" href="/tags">Cancel</a>
     </div>
     </div>
   </form>

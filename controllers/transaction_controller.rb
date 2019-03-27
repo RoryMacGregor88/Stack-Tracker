@@ -43,10 +43,6 @@ post '/transactions/:id' do
   redirect to "/transactions"
 end
 
-post '/transactions/:id' do
-  function( params[:date] )
-end
-
 get '/transactions/merchant_filter' do
   @filtered_merchants = Transaction.filter_by_merchant( params[:name] )
   erb( :'/transactions/merchant_filter' )

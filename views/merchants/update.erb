@@ -1,14 +1,13 @@
-<h2>Update tag</h2>
+<h2 class="h2 ">Update tag:</h2>
+  <br>
   <form action="/merchants/<%= @merchant.id %>" method="post">
     <div class="form-wrapper">
 
     <div class="form-el">
-      <label for="merchant">New merchant:</label>
-      <input type="text" name="name" id="merchant" value="<%= @merchant.name %>">
+      <label class="font-karla" for="merchant">New merchant:</label>
+      <input class="font-karla" type="text" name="name" id="merchant" value="<%= @merchant.name %>">
     </div>
     <input class="btn btn--action" type='submit' value="Update merchant">
     <div class="cancel-link">
-      <a href="/merchants">Cancel</a>
-    </div>
-    </div>
+      <a class="font-karla" href="/merchants">Cancel</a>
   </form>

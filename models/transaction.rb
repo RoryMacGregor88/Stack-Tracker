@@ -86,7 +86,8 @@ class Transaction
     return Transaction.new( result )
   end
 
-  def self.filter_by_merchant( merchant_name )
+  def self.filter_by_merchant( arg )
+    merchant_name = arg.split.each{ |x| x.capitalize! }.join(' ')
     sql = 'SELECT * FROM transactions
           INNER JOIN tags
           ON transactions.tag_id = tags.id

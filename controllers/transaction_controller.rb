@@ -45,3 +45,9 @@ end
 post '/transactions/:id' do
   function( params[:date] )
 end
+
+get '/transactions/filter' do
+  @filtered_merchants = Transaction.filter_by_merchant( params[:name] )
+  @filtered_dates = Transaction.transactions_today( params[:date] )
+  erb( :'/transactions/filter' )
+end

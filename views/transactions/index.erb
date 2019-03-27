@@ -68,19 +68,29 @@
   </table>
 </div>
 <br>
-<label for="tag_filter">
-  Filter by merchant:
-    <input id="tag_filter" type="text" placeholder="name" name="name">
-</label>
-<br>
-<label for="merchant_filter">
-  Filter by tag:
-    <input id="merchant_filter" type="text" placeholder="tag" name="tag">
-</label>
 
-<form action="/">
-Filter by date: <input type="date" name="filter-date">
-  <input type="submit">
+<form class="" action="/transactions/filter" method="GET">
+  <label for="tag_filter">
+    Filter by merchant:
+      <input id="tag_filter" type="text" placeholder="name" name="name">
+    <input type="submit" value="filter results">
+  </label>
+</form>
+
+<form class="" action="/transactions/filter" method="GET">
+  <label for="merchant_filter">
+    Filter by tag:
+      <input id="merchant_filter" type="text" placeholder="tag" name="tag">
+    <input type="submit" value="filter results">
+  </label>
+</form>
+
+<form class="" action="/transactions/filter" method="GET">
+  <label for="filter-date">
+    Filter by date:
+      <input id="filter-date" type="date" name="date">
+  <input type="submit" value="filter results">
+  </label>
 </form>
 
 <p class="index_button">

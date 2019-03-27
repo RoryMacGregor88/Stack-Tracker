@@ -65,7 +65,7 @@ transaction4 = Transaction.new({
   })
 transaction4.save()
 
-tag1 = Transaction.filter_by_tag( 'entertainment' )
+tag1 = Transaction.transactions_today( '2019-03-27 14:57:26' )
 
 binding.pry
 nil

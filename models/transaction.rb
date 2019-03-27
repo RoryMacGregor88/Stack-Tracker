@@ -123,6 +123,20 @@ class Transaction
     return result.map{ |hash| Transaction.new( hash ) }
   end
 
+  def self.most_common_merchant()
+    sql = 'SELECT name, COUNT(name) as FREQUENCY
+          FROM transactions
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          GROUP BY name
+          ORDER BY FREQUENCY DESC
+          LIMIT 1'
+    result_hash = SqlRunner.run(sql).first
+    return Transaction.new( result_hash )
+  end
+
   # def self.transactions_today( date )
   #   sql = 'SELECT * FROM transactions
   #         INNER JOIN merchants

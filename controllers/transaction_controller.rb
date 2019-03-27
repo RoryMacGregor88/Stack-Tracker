@@ -48,6 +48,10 @@ end
 
 get '/transactions/merchant_filter' do
   @filtered_merchants = Transaction.filter_by_merchant( params[:name] )
-  @filtered_dates = Transaction.transactions_today( params[:date] )
   erb( :'/transactions/merchant_filter' )
+end
+
+get '/transactions/tag_filter' do
+  @filtered_tags = Transaction.filter_by_tag( params[:name] )
+  erb( :'/transactions/tag_filter' )
 end

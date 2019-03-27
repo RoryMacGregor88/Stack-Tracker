@@ -1,0 +1,25 @@
+<h2 class="most_recent_h2">Filtered transactions:</h2>
+<h3 class="most_recent_h3">Filtered by tag:</h3>
+
+<div class="filter_merchant_table">
+  <table>
+    <% transaction_num = 1 %>
+    <thead class="table_head">
+      <th>#</th>
+      <th>Merchant</th>
+      <th>Charge</th>
+      <th>Time/Date</th>
+      <th>Category</th>
+    </thead>
+    <% @filtered_merchants.each do |merchant| %>
+    <tr>
+      <td><%= transaction_num %></td>
+      <td><%= merchant.find_merchant_by_id.name %></td>
+      <td>£<%= merchant.charge %></td>
+      <td><%= merchant.date %></td>
+      <td><%= merchant.find_tag_by_id.category.upcase %></td>
+      <% transaction_num += 1 %>
+    <%end%>
+    </tr>
+  </table>
+</div>

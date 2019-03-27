@@ -65,6 +65,5 @@ transaction4 = Transaction.new({
   })
 transaction4.save()
 
-result = Transaction.filter_by_merchant( 'edinburgh council' )
 binding.pry
 nil

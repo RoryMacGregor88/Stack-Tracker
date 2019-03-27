@@ -1,8 +1,8 @@
-<h1>Update transaction</h1>
+<h1 class="h1">Update transaction</h1>
 
 <form action="/transactions/<%= @transaction.id %>" method="post">
 
-  <label>
+  <label class="label">
     Select a merchant:
     <select name="merchant_id">
       <% @merchants.each do |merchant| %>
@@ -17,7 +17,7 @@
 
   <br>
 
-  <label>
+  <label class="label">
     Select a tag:
       <select name="tag_id">
         <% @tags.each do |tag| %>
@@ -32,7 +32,7 @@
 
   <br>
 
-  <label>
+  <label class="label">
     Input charge:
       <input type="number" step="0.01" placeholder="<%=@transaction.charge %>" name="charge" required>
   </label>

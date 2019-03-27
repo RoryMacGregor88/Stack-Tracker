@@ -41,3 +41,7 @@ post '/transactions/:id' do
   transaction.update()
   redirect to "/transactions"
 end
+
+post '/transactions/:id' do
+  function( params[:date] )
+end

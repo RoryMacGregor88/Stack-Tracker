@@ -65,6 +65,6 @@ transaction4 = Transaction.new({
   })
 transaction4.save()
 
-result = merchant3.total_merchant_spending()
+result = tag1.transaction_count()
 binding.pry
 nil

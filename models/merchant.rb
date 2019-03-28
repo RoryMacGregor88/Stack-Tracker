@@ -6,7 +6,6 @@ class Merchant
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @count = transaction_count()
-    @total_money = 0
   end
 
   def save()

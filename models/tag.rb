@@ -34,6 +34,34 @@ class Tag
     SqlRunner.run( sql, values )
   end
 
+  def transaction_count()
+    sql = 'SELECT name FROM transactions
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          WHERE category = $1'
+    values = [@category]
+    result = SqlRunner.run( sql, values )
+    return result.count
+  end
+
+  def total_tag_spending()
+    total = 0
+    sql = 'SELECT charge FROM transactions
+		      INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          WHERE category = $1'
+    values = [@category]
+    result = SqlRunner.run( sql, values )
+    result.each do | hash |
+      total += hash['charge'].to_f
+    end
+    return total
+  end
+
   def self.delete_all()
     sql = 'DELETE FROM tags'
     SqlRunner.run( sql )

@@ -1,7 +1,10 @@
 <div class="show-content">
   <%@tags.each do |tag|%>
-    <h1 class="h1"><%=tag.category%></h1>
-    <p class="font-karla" >total number of transactions from this tag</p>
-    <p class="font-karla" >total money spent on this tag</p>
+    <h1 class="h1" ><%=tag.category.capitalize%></h1>
+      <% if tag.transaction_count == 1 %>
+        <p class="font-karla" >You have had <%= tag.transaction_count() %> transaction and spent a total of £<%= tag.total_tag_spending() %> with this tag.</p>
+      <% else %>
+        <p class="font-karla" >You have had <%= tag.transaction_count() %> transactions and spent a total of £<%= tag.total_tag_spending() %> with this tag.</p>
+      <%end%>
   <%end%>
 </div>

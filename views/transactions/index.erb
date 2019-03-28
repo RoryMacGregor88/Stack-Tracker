@@ -36,8 +36,6 @@
     </table>
   </div>
 
-
-
   <h3 class="h3">Transaction History:</h3>
 
   <div class="table">
@@ -58,11 +56,11 @@
         <td class="font-karla" ><%= transaction.date %></td>
         <td class="font-karla" ><%= transaction.find_tag_by_id().category.upcase %></td>
         <td>
-          <a class="font-karla" href="/transactions/<%= transaction.id %>/update">Update transaction</a>
+          <a class="link" class="font-karla" href="/transactions/<%= transaction.id %>/update">Update transaction</a>
         </td>
         <td>
           <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-            <input class="font-karla" type="submit" value="Delete transaction" />
+            <input class="button" class="font-karla" type="submit" value="Delete transaction" />
           </form>
         </td>
         <% transaction_num += 1 %>
@@ -76,7 +74,7 @@
     <label class="font-karla" for="merchant_filter">
       Filter by merchant:
         <input id="merchant_filter" type="text" placeholder="name" name="name">
-      <input type="submit" value="filter results">
+      <input class="button" type="submit" value="filter results">
     </label>
   </form>
 
@@ -84,7 +82,7 @@
     <label class="font-karla" for="tag_filter">
       Filter by tag:
         <input id="tag_filter" type="text" placeholder="tag" name="tag">
-      <input type="submit" value="filter results">
+      <input class="button" type="submit" value="filter results">
     </label>
   </form>
 
@@ -92,7 +90,7 @@
     <label class="font-karla" for="filter-date">
       Filter by date:
         <input id="filter-date" type="date" name="date">
-    <input type="submit" value="filter results">
+    <input class="button" type="submit" value="filter results">
     </label>
   </form>
 

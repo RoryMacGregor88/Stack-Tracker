@@ -12,13 +12,13 @@
         <a class="link" class="font-karla" href="/tags/<%= tag.id %>/update">Update tag</a>
       </p>
         <form action="/tags/<%= tag.id %>/delete" method="POST">
-          <input class="font-karla" type="submit" value="Delete tag" />
+          <input class="button" class="font-karla" type="submit" value="Delete tag" />
         </form>
       <% tag_num += 1 %>
     <%end%>
   </ul>
 
-  <p class="btn--wrapper">
+  <p>
     <a class="link" class="font-karla" class="btn btn--action" href="/tags/new">New Tag</a>
   </p>
 

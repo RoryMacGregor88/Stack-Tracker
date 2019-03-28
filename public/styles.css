@@ -7,6 +7,27 @@ body {
   background-color: #99e3f3;
 }
 
+.header {
+  background-color: #f9ba31;
+  height: 100px;
+}
+
+.header-h1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  font-family: "Varela Round";
+  font-size: 40px;
+  color: #59b059;
+}
+
+.header-h3 {
+  display: flex;
+  justify-content: center;
+  font-family: "Varela Round";
+  color: #59b059
+}
+
 .title {
   display: flex;
   justify-content: center;
@@ -30,7 +51,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
+  height: 50px;
   width: 500px;
 }
 
@@ -76,6 +97,16 @@ body {
   border-radius: 10px;
 }
 
+.td {
+  border-radius: 5px;
+  padding: 2.5px;
+}
+
+.th {
+  padding: 2.5px;
+  border-bottom: 1px solid black;
+}
+
 .new-form-div {
   display:flex;
   justify-content: center;
@@ -94,6 +125,10 @@ body {
   background-color: #fed97d;
 }
 
+.filter-input {
+  background-color: #fed97d;
+}
+
 .show-content {
 }
 
@@ -107,6 +142,20 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
-  height: 20px;
-  background-color: #59b059;
+  height: 40px;
+  background-color: #f9ba31;
+}
+
+.footer-p {
+  display: flex;
+  justify-content: center;
+  font-family: Karla;
+  color: #59b059;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  font-family: Karla;
 }

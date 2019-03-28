@@ -137,54 +137,30 @@ class Transaction
     return Transaction.new( result_hash )
   end
 
-  def self.all_transactions_for_merchant( merchant )
-    sql = 'SELECT * FROM transactions
-          INNER JOIN merchants
-          ON transactions.merchant_id = merchants.id
-          INNER JOIN tags
-          ON transactions.tag_id = tags.id
-          WHERE name = $1'
-    values = [merchant]
-    result_hashes = SqlRunner.run(sql, values)
-    return result_hashes.map{ |hashes| Transaction.new(hashes) }
-  end
-
-  def self.all_transactions_for_tag( tag )
-    sql = 'SELECT * FROM transactions
-          INNER JOIN merchants
-          ON transactions.merchant_id = merchants.id
-          INNER JOIN tags
-          ON transactions.tag_id = tags.id
-          WHERE category = $1'
-    values = [tag]
-    result_hashes = SqlRunner.run(sql, values)
-    return result_hashes.map{ |hashes| Transaction.new(hashes) }
-  end
-
-  def total_spent_on_merchant( merchant )
-    result = Transaction.all_transactions_for_merchant( merchant )
+  def number_of_transactions_for_merchant( merchant )
+    result = Transaction.filter_by_merchant( merchant )
     return result.length()
   end
 
-  def total_spent_on_tag( tag )
-    result = Transaction.all_transactions_for_tag( tag )
+  def number_of_transactions_for_tag( tag )
+    result = Transaction.filter_by_tag( tag )
     return result.length()
   end
 
-  def self.total_money_spent_on_transaction( merchant )
+  def self.total_money_spent_on_merchant( merchant )
     total = 0
-    transactions = Transaction.all_transactions_for_merchant( merchant )
+    transactions = self.filter_by_merchant( merchant )
     transactions.each do |transaction|
-    total += transaction.charge()
+    total += transaction.charge.to_f
     end
     return total
   end
 
-  def self.total_money_spent_on_tag( tag )
+  def total_money_spent_on_tag( tag )
     total = 0
-    transactions = Transaction.all_transactions_for_tag( tag )
+    transactions = self.filter_by_tag( tag )
     transactions.each do |transaction|
-    total += transaction.charge()
+    total += transaction.charge.to_f
     end
     return total
   end

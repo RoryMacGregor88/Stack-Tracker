@@ -33,6 +33,7 @@ body {
   display: flex;
   justify-content: center;
   font-family: "Varela Round";
+  font-size: 25px;
   color: #59b059
 }
 
@@ -98,11 +99,22 @@ body {
   font-family: Karla;
 }
 
+/* table {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+} */
+
 .table {
   display: flex;
   justify-content: space-between;
   border: 3px solid #59b059;
   border-radius: 10px;
+}
+
+.table-align {
+  justify-content: space-between;
+  text-align: center;
 }
 
 .filter-table {

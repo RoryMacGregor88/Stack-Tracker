@@ -1,7 +1,10 @@
 <div class="show-content">
   <%@merchants.each do |merchant|%>
     <h1 class="h1" ><%=merchant.name%></h1>
-    <p class="font-karla" >total number of transactions here</p>
-    <p class="font-karla" >total money spent here</p>
+      <% if merchant.transaction_count == 1 %>
+        <p class="font-karla" >You have had <%= merchant.transaction_count() %> transaction and spent a total of £<%= merchant.total_merchant_spending() %> with this merchant.</p>
+      <% else %>
+        <p class="font-karla" >You have had <%= merchant.transaction_count() %> transactions and spent a total of £<%= merchant.total_merchant_spending() %> with this merchant.</p>
+      <%end%>
   <%end%>
 </div>

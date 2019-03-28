@@ -65,7 +65,6 @@ transaction4 = Transaction.new({
   })
 transaction4.save()
 
-tag1 = Transaction.most_common_merchant()
-
+result = merchant3.total_merchant_spending()
 binding.pry
 nil

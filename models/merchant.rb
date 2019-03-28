@@ -1,10 +1,12 @@
 class Merchant
 
-  attr_accessor :id, :name
+  attr_accessor :id, :name, :total_money, :count
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
+    @count = transaction_count()
+    @total_money = 0
   end
 
   def save()
@@ -37,6 +39,34 @@ class Merchant
   def self.delete_all()
     sql = 'DELETE FROM merchants'
     SqlRunner.run( sql )
+  end
+
+  def transaction_count()
+    sql = 'SELECT name FROM transactions
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          WHERE name = $1'
+    values = [@name]
+    result = SqlRunner.run( sql, values )
+    return result.count
+  end
+
+  def total_merchant_spending()
+    total = 0
+    sql = 'SELECT charge FROM transactions
+		      INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          WHERE name = $1'
+    values = [@name]
+    result = SqlRunner.run( sql, values )
+    result.each do | hash |
+      total += hash['charge'].to_f
+    end
+    return total
   end
 
   def self.delete( id )

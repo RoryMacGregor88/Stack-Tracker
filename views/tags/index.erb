@@ -6,20 +6,20 @@
     <% for tag in @tags %>
       <p class="font-karla">Tag <%= tag_num %>: <%= tag.category.upcase %></p>
       <p class="tag-details-button">
-        <a class="font-karla" class="btn btn--action" href="/tags/show">Show tag details</a>
+        <a class="link" class="font-karla" href="/tags/show">Show tag details</a>
       </p>
       <p class="tag-update-button">
-        <a class="font-karla" href="/tags/<%= tag.id %>/update">Update tag</a>
+        <a class="link" class="font-karla" href="/tags/<%= tag.id %>/update">Update tag</a>
       </p>
         <form action="/tags/<%= tag.id %>/delete" method="POST">
-          <input class="font-karla" class="btn btn--danger" type="submit" value="Delete tag" />
+          <input class="font-karla" type="submit" value="Delete tag" />
         </form>
       <% tag_num += 1 %>
     <%end%>
   </ul>
 
   <p class="btn--wrapper">
-    <a class="font-karla" class="btn btn--action" href="/tags/new">New Tag</a>
+    <a class="link" class="font-karla" class="btn btn--action" href="/tags/new">New Tag</a>
   </p>
 
 </div>

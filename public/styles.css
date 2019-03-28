@@ -7,9 +7,27 @@ body {
   background-color: #b9d7d9;
 }
 
+.navbar-buttons {
+  font-size: 40px;
+  padding: 0px 50px 0px 50px;
+  font-family: "Varela Round"
+}
+
 .navbar {
+  background-color: #69d39d
+}
+
+.layout-table {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  width: 500px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
   font-family: Karla;
 }
 
@@ -62,4 +80,13 @@ body {
 #content {
   padding-left: 200px;
   padding-right: 200px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  height: 35px;
+  background-color: #69d39d;
 }

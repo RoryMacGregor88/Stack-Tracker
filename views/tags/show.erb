@@ -2,9 +2,9 @@
   <%@tags.each do |tag|%>
     <h1 class="h1" ><%=tag.category.capitalize%></h1>
       <% if tag.transaction_count == 1 %>
-        <p class="font-karla" >You have had <%= tag.transaction_count() %> transaction and spent a total of £<%= tag.total_tag_spending() %> with this tag.</p>
+        <p class="font-karla" >You have had <span class="span"><%= tag.transaction_count() %></span> transaction and spent a total of <span class="span">£<%= tag.total_tag_spending() %></span> with this tag.</p>
       <% else %>
-        <p class="font-karla" >You have had <%= tag.transaction_count() %> transactions and spent a total of £<%= tag.total_tag_spending() %> with this tag.</p>
+        <p class="font-karla" >You have had <span class="span"><%= tag.transaction_count() %></span> transactions and spent a total of <span class="span">£<%= tag.total_tag_spending() %></span> with this tag.</p>
       <%end%>
   <%end%>
 </div>

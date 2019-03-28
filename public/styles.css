@@ -91,12 +91,22 @@ body {
   font-family: Karla;
 }
 
+.span {
+  font-size: 20px;
+  color: #59b059;
+  font-weight: bold;
+}
+
 .h3 {
   display: flex;
   justify-content: flex-start;
   color: #f9ba31;
   padding: 10px 0px 10px 0px;
   font-family: Karla;
+}
+
+.show-text {
+  padding: 15px 0px 15px 0px;
 }
 
 /* table {

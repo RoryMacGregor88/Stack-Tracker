@@ -1,3 +1,36 @@
+<div>
+  <h3 class="h3">Filters: </h3>
+  <table class="filter-table">
+    <td>
+      <form action="/transactions/merchant_filter" method="GET">
+        <label class="font-karla" for="merchant_filter">By merchant:</label>
+        <br>
+        <input class="filter-input" id="merchant_filter" type="text" placeholder="name" name="name">
+        <input class="button" type="submit" value="filter results">
+      </form>
+    </td>
+    <td>
+      <form action="/transactions/tag_filter" method="GET">
+        <label class="font-karla" for="tag_filter">By tag:</label>
+        <br>
+        <input class="filter-input" id="tag_filter" type="text" placeholder="tag" name="tag">
+        <input class="button" type="submit" value="filter results">
+      </form>
+    </td>
+    <td>
+      <form action="/transactions/date_filter" method="GET">
+        <label class="font-karla" for="filter-date">By date:</label>
+        <br>
+        <input class="filter-input" id="filter-date" type="date" name="date">
+        <input class="button" type="submit" value="filter results">
+      </form>
+    </td>
+  </table>
+  <p class="index_button">
+    <a class="link" class="font-karla" class="btn btn--action" href="/transactions/new">New Transaction</a>
+  </p>
+</div>
+
 <h3 class="h3">Most recent transaction:</h3>
 
   <div class="table">
@@ -43,19 +76,19 @@
       <% transaction_num = 1 %>
       <thead class="table_head">
         <th class="font-karla" >#</th>
-        <th class="th" class="font-karla" >Merchant</th>
-        <th class="th" class="font-karla" >Charge</th>
-        <th class="th" class="font-karla" >Time/Date</th>
-        <th class="th" class="font-karla" >Category</th>
+        <th class="font-karla" >Merchant</th>
+        <th class="font-karla" >Charge</th>
+        <th class="font-karla" >Time/Date</th>
+        <th class="font-karla" >Category</th>
       </thead>
       <% for transaction in @transactions %>
       <tr>
-        <td class="td" class="font-karla" ><%= transaction_num %></td>
-        <td class="td" class="font-karla" ><%= transaction.find_merchant_by_id().name %></td>
-        <td class="td" class="font-karla" >£<%= transaction.charge %></td>
-        <td class="td" class="font-karla" ><%= transaction.date %></td>
-        <td class="td" class="font-karla" ><%= transaction.find_tag_by_id().category.upcase %></td>
-        <td class="td">
+        <td class="font-karla" ><%= transaction_num %></td>
+        <td class="font-karla" ><%= transaction.find_merchant_by_id().name %></td>
+        <td class="font-karla" >£<%= transaction.charge %></td>
+        <td class="font-karla" ><%= transaction.date %></td>
+        <td class="font-karla" ><%= transaction.find_tag_by_id().category.upcase %></td>
+        <td>
           <a class="link" class="font-karla" href="/transactions/<%= transaction.id %>/update">Update transaction</a>
         </td>
         <td>
@@ -68,29 +101,3 @@
       </tr>
     </table>
   </div>
-  <br>
-
-  <form action="/transactions/merchant_filter" method="GET">
-    <label class="font-karla" for="merchant_filter">Filter by merchant:</label>
-    <br>
-    <input class="filter-input" id="merchant_filter" type="text" placeholder="name" name="name">
-    <input class="button" type="submit" value="filter results">
-  </form>
-
-
-  <form action="/transactions/tag_filter" method="GET">
-    <label class="font-karla" for="tag_filter">Filter by tag:</label>
-    <br>  <input class="filter-input" id="tag_filter" type="text" placeholder="tag" name="tag">
-    <input class="button" type="submit" value="filter results">
-  </form>
-
-  <form action="/transactions/date_filter" method="GET">
-    <label class="font-karla" for="filter-date">Filter by date:</label>
-    <br>
-    <input class="filter-input" id="filter-date" type="date" name="date">
-    <input class="button" type="submit" value="filter results">
-  </form>
-  <br>
-  <p class="index_button">
-    <a class="link" class="font-karla" class="btn btn--action" href="/transactions/new">New Transaction</a>
-  </p>

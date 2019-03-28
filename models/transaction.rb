@@ -137,6 +137,58 @@ class Transaction
     return Transaction.new( result_hash )
   end
 
+  def self.all_transactions_for_merchant( merchant )
+    sql = 'SELECT * FROM transactions
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          WHERE name = $1'
+    values = [merchant]
+    result_hashes = SqlRunner.run(sql, values)
+    return result_hashes.map{ |hashes| Transaction.new(hashes) }
+  end
+
+  def self.all_transactions_for_tag( tag )
+    sql = 'SELECT * FROM transactions
+          INNER JOIN merchants
+          ON transactions.merchant_id = merchants.id
+          INNER JOIN tags
+          ON transactions.tag_id = tags.id
+          WHERE category = $1'
+    values = [tag]
+    result_hashes = SqlRunner.run(sql, values)
+    return result_hashes.map{ |hashes| Transaction.new(hashes) }
+  end
+
+  def total_spent_on_merchant( merchant )
+    result = Transaction.all_transactions_for_merchant( merchant )
+    return result.length()
+  end
+
+  def total_spent_on_tag( tag )
+    result = Transaction.all_transactions_for_tag( tag )
+    return result.length()
+  end
+
+  def self.total_money_spent_on_transaction( merchant )
+    total = 0
+    transactions = Transaction.all_transactions_for_merchant( merchant )
+    transactions.each do |transaction|
+    total += transaction.charge()
+    end
+    return total
+  end
+
+  def self.total_money_spent_on_tag( tag )
+    total = 0
+    transactions = Transaction.all_transactions_for_tag( tag )
+    transactions.each do |transaction|
+    total += transaction.charge()
+    end
+    return total
+  end
+
   # def self.transactions_today( date )
   #   sql = 'SELECT * FROM transactions
   #         INNER JOIN merchants

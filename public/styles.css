@@ -165,8 +165,10 @@ body {
   background-color: #fed97d;
 }
 
-.show-content {
-}
+/* .show-content {
+  display: flex;
+  justify-content: space-between;
+} */
 
 #content {
   padding-left: 260px;

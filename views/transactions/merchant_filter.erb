@@ -1,25 +1,36 @@
-<h2 class="h2">Filtered transactions:</h2>
-<h3 class="h3">By merchant selected:</h3>
-
-<div class="table">
-  <table class="table-align">
-    <% transaction_num = 1 %>
-    <thead class="table_head">
-      <th class="font-karla" >#</th>
-      <th class="font-karla" >Merchant</th>
-      <th class="font-karla" >Charge</th>
-      <th class="font-karla" >Time/Date</th>
-      <th class="font-karla" >Category</th>
-    </thead>
-    <% @filtered_merchants.each do |transaction| %>
-    <tr>
-      <td class="font-karla" ><%= transaction_num %></td>
-      <td class="font-karla" ><%= transaction.find_merchant_by_id.name %></td>
-      <td class="font-karla" >£<%= transaction.charge %></td>
-      <td class="font-karla" ><%= transaction.date %></td>
-      <td class="font-karla" ><%= transaction.find_tag_by_id.category.upcase %></td>
-      <% transaction_num += 1 %>
-    <%end%>
-    </tr>
-  </table>
-</div>
+  <h2 class="h2">Filtered transactions:</h2>
+  <br>
+  <% if @true_false == false %>
+   <h1 class="h3-no-such">Oops! No such merchant.</h1>
+  <%else%>
+  <h3 class="h3">By merchant selected:</h3>
+        <table class="table">
+          <% transaction_num = 1 %>
+          <thead class="th">
+            <th>#</th>
+            <th>Merchant</th>
+            <th>Charge</th>
+            <th>Time/Date</th>
+            <th>Category</th>
+          </thead>
+          <% @filtered_merchants.each do |transaction| %>
+          <tr class="td">
+            <td><%= transaction_num %></td>
+            <td><%= transaction.find_merchant_by_id.name %></td>
+            <td>£<%= transaction.charge %></td>
+            <td><%= transaction.date %></td>
+            <td><%= transaction.find_tag_by_id.category.upcase %></td>
+            <td>
+              <a class="link" href="/transactions/<%= transaction.id %>/update">Update transaction</a>
+            </td>
+            <td>
+              <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+                <input class="button" type="submit" value="Delete transaction" />
+              </form>
+            </td>
+            <% transaction_num += 1 %>
+          <%end%>
+          </tr>
+        </table>
+  <%end%>
+    <a class="back" href="/transactions">Back</a>

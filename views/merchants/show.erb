@@ -1,10 +1,11 @@
+<br>
 <div>
   <%@merchants.each do |merchant|%>
     <h1 class="h1" ><%=merchant.name.capitalize%></h1>
       <% if merchant.transaction_count == 1 %>
-        <p class="font-karla" >You have had <span class="span"><%= merchant.transaction_count() %></span> transaction and spent a total of <span class="span">£<%= merchant.total_merchant_spending() %></span> with this merchant.</p>
+        <p class="font-karla" >You have had <span class="span"><%= merchant.transaction_count() %></span> transaction and spent a total of <span class="span">£<%= merchant.total_merchant_spending().round(2) %></span> with <%= merchant.name() %>.</p>
       <% else %>
-        <p class="font-karla" >You have had <span class="span"><%= merchant.transaction_count() %></span> transactions and spent a total of <span class="span">£<%= merchant.total_merchant_spending() %></span> with this merchant.</p>
+        <p class="font-karla" >You have had <span class="span"><%= merchant.transaction_count() %></span> transactions and spent a total of <span class="span">£<%= merchant.total_merchant_spending().round(2) %></span> with <%= merchant.name() %>.</p>
       <%end%>
   <%end%>
 </div>

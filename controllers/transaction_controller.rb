@@ -45,6 +45,8 @@ end
 
 get '/transactions/merchant_filter' do
   @filtered_merchants = Transaction.filter_by_merchant( params[:name] )
+  merchant_names = Merchant.all.map{ |merchant| merchant.name() }
+  @true_false = merchant_names.include?( params[:name].to_s )
   erb( :'/transactions/merchant_filter' )
 end
 

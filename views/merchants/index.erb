@@ -1,26 +1,28 @@
-<div>
-  <h1 class="h1">Your merchants</h1>
+<br>
+  <h1 class="h1">Your merchants:</h1>
+  <br>
+  <p class="btn--wrapper">
+    <a class="link" class="font-karla" href="/merchants/new">New Merchant</a>
+  </p>
+  <br>
 
   <ul class="show-content">
     <% merchant_num = 1 %>
     <% for merchant in @merchants %>
       <p  class="font-karla">Merchant <%= merchant_num %>: <%= merchant.name %></p>
+      <br>
       <p class="btn--wrapper">
         <a class="link" class="font-karla" class="btn btn--action" href="/merchants/show">Show merchant details</a>
       </p>
-
+      <br>
       <p class="merchant-update-button">
         <a class="link" class="font-karla" href="/merchants/<%= merchant.id %>/update">Update merchant</a>
       </p>
+      <br>
       <form action="/merchants/<%= merchant.id %>/delete" method="POST">
         <input class="button" class="font-karla" class="btn btn--danger" type="submit" value="Delete merchant" />
       </form>
+      <br>
       <% merchant_num += 1 %>
     <%end%>
   </ul>
-
-  <p class="btn--wrapper">
-    <a class="link" class="font-karla" class="btn btn--action" href="/merchants/new">New Merchant</a>
-  </p>
-
-</div>

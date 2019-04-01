@@ -147,20 +147,20 @@ class Transaction
     return result.length()
   end
 
-  def self.total_money_spent_on_merchant( merchant )
+  def total_money_spent_on_merchant( merchant )
     total = 0
     transactions = self.filter_by_merchant( merchant )
     transactions.each do |transaction|
-    total += transaction.charge.to_f
+      total += transaction.charge.to_f
     end
     return total
-  end
+  end 
 
   def total_money_spent_on_tag( tag )
     total = 0
     transactions = self.filter_by_tag( tag )
     transactions.each do |transaction|
-    total += transaction.charge.to_f
+      total += transaction.charge.to_f
     end
     return total
   end

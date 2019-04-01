@@ -23,7 +23,7 @@ tag3 = Tag.new({
 tag3.save()
 
 tag4 = Tag.new({
-  'category' => 'Guitar Parts'
+  'category' => 'guitar parts'
   })
 tag4.save()
 
@@ -43,9 +43,19 @@ tag7 = Tag.new({
 tag7.save()
 
 tag8 = Tag.new({
-  'category' => 'miscellaneous'
+  'category' => 'household'
   })
 tag8.save()
+
+tag9 = Tag.new({
+  'category' => 'training'
+  })
+tag9.save()
+
+tag10 = Tag.new({
+  'category' => 'clothes'
+  })
+tag10.save()
 
 
 merchant1 = Merchant.new({
@@ -87,6 +97,16 @@ merchant8 = Merchant.new({
   'name' => 'various'
   })
 merchant8.save()
+
+merchant9 = Merchant.new({
+  'name' => 'CEX'
+  })
+merchant9.save()
+
+merchant10 = Merchant.new({
+  'name' => 'Wetherspoons'
+  })
+merchant10.save()
 
 
 transaction1 = Transaction.new({
@@ -131,6 +151,45 @@ transaction6 = Transaction.new({
   })
 transaction6.save()
 
-result = tag1.transaction_count()
+transaction7 = Transaction.new({
+  'merchant_id' => merchant10.id,
+  'tag_id' => tag3.id,
+  'charge' => '15.98'
+  })
+transaction7.save()
+
+transaction8 = Transaction.new({
+  'merchant_id' => merchant9.id,
+  'tag_id' => tag3.id,
+  'charge' => '15.98'
+  })
+transaction8.save()
+
+transaction9 = Transaction.new({
+  'merchant_id' => merchant4.id,
+  'tag_id' => tag9.id,
+  'charge' => '88.21'
+  })
+transaction9.save()
+
+transaction10 = Transaction.new({
+  'merchant_id' => merchant2.id,
+  'tag_id' => tag8.id,
+  'charge' => '16.42'
+  })
+transaction10.save()
+
+merchants = Merchant.all()
+tags = Tag.all()
+
+100.times do
+  transaction = Transaction.new({
+    'merchant_id' => merchants.sample.id,
+    'tag_id' => tags.sample.id,
+    'charge' => rand(1.1..99.9).to_f.round(2)
+    })
+  transaction.save()
+end
+
 binding.pry
 nil
